@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.ConsoleClient", "MediaMonitoringSystem.ConsoleClient\MediaMonitoringSystem.ConsoleClient.csproj", "{E33637C7-2733-4A1B-B8F8-A205A89CF881}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.WindowsFormsClient", "MediaMonitoringSystem.WindowsFormsClient\MediaMonitoringSystem.WindowsFormsClient.csproj", "{96F5F7C4-732E-4EEA-9631-00A27E97932D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E33637C7-2733-4A1B-B8F8-A205A89CF881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E33637C7-2733-4A1B-B8F8-A205A89CF881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E33637C7-2733-4A1B-B8F8-A205A89CF881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
