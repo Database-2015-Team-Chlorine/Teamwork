@@ -3,12 +3,13 @@
     using System;
     using System.Linq;
     using MediaMonitoringSystem.Data;
-    using MediaMonitoringSystem.Models;
+    using System.Data.Entity;
 
     public class Program
     {
         public static void Main()
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MediaMonitoringSystemDbContext, Configuration>());
             var db = new MediaMonitoringSystemDbContext();
 
             var mtg = new MediaDistributor

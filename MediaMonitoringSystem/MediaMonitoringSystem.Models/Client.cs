@@ -5,7 +5,7 @@
 
     public class Client
     {
-        private ICollection<Theme> themes; 
+        private ICollection<Theme> themes;
 
         public Client()
         {
