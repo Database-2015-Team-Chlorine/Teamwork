@@ -4,41 +4,33 @@
     using System.Linq;
     using MediaMonitoringSystem.Data;
     using System.Data.Entity;
+    using MediaMonitoringSystem.Models;
+    using MediaMonitoringSystem.Data.Migrations;
 
     public class Program
     {
         public static void Main()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MediaMonitoringSystemDbContext, Configuration>());
+
             var db = new MediaMonitoringSystemDbContext();
 
-            var mtg = new MediaDistributor
+            var pesho = new MediaDistributor
                 {
-                    Name = "MTG"
+                    Name = "Na pesho mediite"
                 };
 
-            db.MediaDistributors.Add(mtg);
+            db.MediaDistributors.Add(pesho);
 
-            var novaTv = new Media
-                {
-                    Name = "Nova TV",
-                    Type = MediaType.TV,
-                    MediaDistributor = mtg,
-                    PriceSubscriptionPerMonth = 32.0M
-                };
-
-            var novaSport = new Media
+            try
             {
-                Name = "Nova sport TV",
-                Type = MediaType.TV,
-                MediaDistributor = mtg,
-                PriceSubscriptionPerMonth = 35.0M
-            };
-
-            db.Medias.Add(novaTv);
-            db.Medias.Add(novaSport);
-
-            db.SaveChanges();
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR!!!!!!!!!!!!");
+                Console.WriteLine((ex as System.Data.Entity.Validation.DbEntityValidationException).EntityValidationErrors.ToList()[0].ValidationErrors.ToList()[0].ErrorMessage);
+            }
         }
     }
 }

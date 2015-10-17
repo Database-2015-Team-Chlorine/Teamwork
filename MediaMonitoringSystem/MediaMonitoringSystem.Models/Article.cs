@@ -23,11 +23,11 @@
         [MaxLength(int.MaxValue)]
         public string Content { get; set; }
         
-
         public DateTime PublishedOn { get; set; }
 
         public byte[] File { get; set; }
 
+        [Required]
         public int MediaId { get; set; }
 
         public virtual Media Media { get; set; }
