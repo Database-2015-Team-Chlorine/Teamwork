@@ -1,10 +1,11 @@
 ﻿namespace MediaMonitoringSystem.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     public class Client
     {
-        private ICollection<Theme> themes; 
+        private ICollection<Theme> themes;
 
         public Client()
         {
@@ -13,6 +14,7 @@
 
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public virtual ICollection<Theme> Themes
