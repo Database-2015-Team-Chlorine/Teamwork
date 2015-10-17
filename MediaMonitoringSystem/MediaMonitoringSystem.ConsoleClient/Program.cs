@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-
     using MediaMonitoringSystem.Data;
     using MediaMonitoringSystem.Models;
 
@@ -11,7 +10,7 @@
         public static void Main()
         {
             var db = new MediaMonitoringSystemDbContext();
-            
+
             var mtg = new MediaDistributor
                 {
                     Name = "MTG"
@@ -39,7 +38,6 @@
             db.Medias.Add(novaSport);
 
             db.SaveChanges();
-
         }
     }
 }

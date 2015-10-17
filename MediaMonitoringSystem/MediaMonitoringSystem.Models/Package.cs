@@ -1,6 +1,8 @@
 ﻿namespace MediaMonitoringSystem.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Package
     {
@@ -13,37 +15,29 @@
             this.medias = new HashSet<Media>();
             this.themes = new HashSet<Theme>();
         }
-        
+
+        [Key]
         public int Id { get; set; }
 
-        public PackageType Type { get; set; }
+        [Required]
+        [Range(3, 100)]
+        public int CountMedias { get; set; }
 
+        [Required]
+        [Column(TypeName = "Money")]
         public decimal PricePerMonth { get; set; }
 
         public virtual ICollection<Media> Medias
         {
-            get
-            {
-                return this.medias;
-            }
-
-            set
-            {
-                this.medias = value;
-            }
+            get { return this.medias; }
+            set { this.medias = value; }
         }
 
         public virtual ICollection<Theme> Themes
         {
-            get
-            {
-                return this.themes;
-            }
 
-            set
-            {
-                this.themes = value;
-            }
+            get { return this.themes; }
+            set { this.themes = value; }
         }
     }
 }
