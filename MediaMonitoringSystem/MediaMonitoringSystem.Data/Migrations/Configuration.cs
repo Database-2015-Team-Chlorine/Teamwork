@@ -1,7 +1,8 @@
 namespace MediaMonitoringSystem.Data.Migrations
 {
-    using Models;
     using System.Data.Entity.Migrations;
+    using MediaMonitoringSystem.Data.Contracts;
+    using Models;
 
     public sealed class Configuration : DbMigrationsConfiguration<MediaMonitoringSystemDbContext>
     {
@@ -14,6 +15,12 @@ namespace MediaMonitoringSystem.Data.Migrations
 
         protected override void Seed(MediaMonitoringSystemDbContext context)
         {
+            var pesho = new MediaDistributor
+            {
+                Name = "DbMedia5"
+            };
+
+            context.MediaDistributors.Add(pesho);
         }
     }
 }

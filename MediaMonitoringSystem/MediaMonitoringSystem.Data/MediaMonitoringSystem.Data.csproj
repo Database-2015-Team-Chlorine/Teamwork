@@ -46,9 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Contracts\IMediaMonitoringSystemData.cs" />
+    <Compile Include="Contracts\IMediaMonitoringSystemDbContext.cs" />
+    <Compile Include="MediaMonitoringSystemData.cs" />
     <Compile Include="MediaMonitoringSystemDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,6 +65,7 @@
       <Name>MediaMonitoringSystem.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
