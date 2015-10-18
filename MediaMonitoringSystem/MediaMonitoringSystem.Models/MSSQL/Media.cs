@@ -30,7 +30,7 @@
             get { return this.packages; }
             set { this.packages = value; }
         }
-        
+
         public virtual ICollection<Article> Articles
         {
             get { return this.articles; }

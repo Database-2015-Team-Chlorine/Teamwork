@@ -22,7 +22,7 @@
         [MinLength(100)]
         [MaxLength(int.MaxValue)]
         public string Content { get; set; }
-        
+
         public DateTime PublishedOn { get; set; }
 
         public byte[] File { get; set; }
