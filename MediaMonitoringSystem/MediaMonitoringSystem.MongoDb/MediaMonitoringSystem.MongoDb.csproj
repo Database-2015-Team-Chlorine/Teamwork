@@ -62,6 +62,7 @@
   <ItemGroup>
     <None Include="ConsoleClient\App.config" />
     <None Include="ConsoleClient\packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BAZATA\" />
