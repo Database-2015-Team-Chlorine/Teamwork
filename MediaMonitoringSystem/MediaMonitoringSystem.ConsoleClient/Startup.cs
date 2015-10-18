@@ -13,6 +13,7 @@
     using MediaMonitoringSystem.Models.Contracts;
     using MediaMonitoringSystem.Models.MSSQL;
     using MediaMonitoringSystem.Models.MSSQL.Contracts;
+    using MediaMonitoringSystem.Data.Exporters;
 
     public class Startup
     {
@@ -32,6 +33,10 @@
                 //throw new Exeption dont know why????
                 //db.MediaDistributors.Add(d);
             }
+
+           //Try this to create the files in Debug folder
+
+           //DemoExporters.RunMe();
 
         }
     }

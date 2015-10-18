@@ -96,6 +96,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exporters\DemoExporters.cs" />
+    <Compile Include="Exporters\IExporter.cs" />
+    <Compile Include="Exporters\JSONExporter.cs" />
+    <Compile Include="Exporters\XMLExporter.cs" />
     <Compile Include="MongoDb\MediaDistributorsMongoDbContext.cs" />
     <Compile Include="MSSQL\Contracts\IGenericRepository.cs" />
     <Compile Include="MSSQL\Contracts\IMediaMonitoringSystemData.cs" />
