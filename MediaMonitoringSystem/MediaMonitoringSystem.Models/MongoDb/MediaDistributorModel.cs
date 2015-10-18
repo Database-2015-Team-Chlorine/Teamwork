@@ -7,11 +7,16 @@
 
     public class MediaDistributorModel : IMediaDistributorModel 
     {
+        public MediaDistributorModel()
+        {
+            this.Medias = new List<MediaModel>();
+        }
+
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<IMediaModel> Medias { get; set; }
+        public ICollection<MediaModel> Medias { get; set; }
     }
 }

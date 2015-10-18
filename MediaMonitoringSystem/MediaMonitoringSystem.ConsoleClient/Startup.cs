@@ -9,19 +9,30 @@
     using MediaMonitoringSystem.Data.MongoDb;
     using MediaMonitoringSystem.MongoDb.ConsoleClient;
     using MongoDB.Driver.Builders;
+    using System.Collections.Generic;
+    using MediaMonitoringSystem.Models.Contracts;
+    using MediaMonitoringSystem.Models.MSSQL;
+    using MediaMonitoringSystem.Models.MSSQL.Contracts;
 
     public class Startup
     {
         public static void Main()
         {
+            var mongo = new MongoModel();
+            var distributors = mongo.GenerateDistributors(3);
+            mongo.InsertToMongo(distributors);
+
+            var distributorsToSql = mongo.GetFromMongo();
+            Console.WriteLine(distributorsToSql);
+
             var db = new MediaMonitoringSystemData();
 
-            var mds = db.MediaDistributors.All();
-
-            foreach (var md in mds)
+            foreach (var d in distributorsToSql)
             {
-                Console.WriteLine(md.Name);
+                //throw new Exeption dont know why????
+                //db.MediaDistributors.Add(d);
             }
+
         }
     }
 }

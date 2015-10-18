@@ -4,6 +4,8 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    using MediaMonitoringSystem.Models.MSSQL.Contracts;
+
     public class Media
     {
         private ICollection<Package> packages;
@@ -20,9 +22,6 @@
 
         public MediaType Type { get; set; }
 
-        [Required]
-        [MinLength(3)]
-        [MaxLength(20)]
         public string Name { get; set; }
 
         public virtual ICollection<Package> Packages
@@ -37,17 +36,14 @@
             set { this.articles = value; }
         }
 
-        [Required]
         public int MediaDistributorId { get; set; }
 
         public virtual MediaDistributor MediaDistributor { get; set; }
 
-        [Required]
         public int DepartmentId { get; set; }
 
         public virtual Department Department { get; set; }
 
-        [Required]
         [Column(TypeName = "Money")]
         public decimal PriceSubscriptionPerMonth { get; set; }
     }

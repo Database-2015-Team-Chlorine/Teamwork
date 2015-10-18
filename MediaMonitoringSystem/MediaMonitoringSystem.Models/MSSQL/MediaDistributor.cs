@@ -16,7 +16,7 @@
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(10)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         public virtual ICollection<Media> Medias
