@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Data.Contracts
+﻿namespace MediaMonitoringSystem.Data.MSSQL.Contracts
 {
     using System.Linq;
 

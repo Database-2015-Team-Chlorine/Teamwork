@@ -5,9 +5,12 @@
     using MediaMonitoringSystem.Data;
     using System.Data.Entity;
     using MediaMonitoringSystem.Models;
-    using MediaMonitoringSystem.Data.Migrations;
+    using MediaMonitoringSystem.Data.MSSQL;
+    using MediaMonitoringSystem.Data.MongoDb;
+    using MediaMonitoringSystem.MongoDb.ConsoleClient;
+    using MongoDB.Driver.Builders;
 
-    public class Program
+    public class Startup
     {
         public static void Main()
         {

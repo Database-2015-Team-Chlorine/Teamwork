@@ -30,6 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.0.1\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Legacy">
+      <HintPath>..\packages\mongocsharpdriver.2.0.1\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -40,20 +52,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Media.cs" />
-    <Compile Include="MediaDistributor.cs" />
-    <Compile Include="MediaType.cs" />
-    <Compile Include="Package.cs" />
-    <Compile Include="PackageType.cs" />
+    <Compile Include="MongoDb\MediaDistributorModel.cs" />
+    <Compile Include="MongoDb\MediaModel.cs" />
+    <Compile Include="MSSQL\Article.cs" />
+    <Compile Include="MSSQL\Client.cs" />
+    <Compile Include="Contracts\IMediaDistributorModel.cs" />
+    <Compile Include="Contracts\IMediaModel.cs" />
+    <Compile Include="MSSQL\Department.cs" />
+    <Compile Include="MSSQL\Employee.cs" />
+    <Compile Include="MSSQL\Media.cs" />
+    <Compile Include="MSSQL\MediaDistributor.cs" />
+    <Compile Include="MSSQL\MediaType.cs" />
+    <Compile Include="MSSQL\Package.cs" />
+    <Compile Include="MSSQL\PackageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Theme.cs" />
+    <Compile Include="MSSQL\Theme.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports.Examples\BasicReportExample.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

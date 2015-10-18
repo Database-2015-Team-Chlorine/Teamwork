@@ -1,8 +1,7 @@
-namespace MediaMonitoringSystem.Data.Migrations
+namespace MediaMonitoringSystem.Data.MSSQL.Migrations
 {
     using System.Data.Entity.Migrations;
-    using MediaMonitoringSystem.Data.Contracts;
-    using Models;
+    using MediaMonitoringSystem.Models.MSSQL;
 
     public sealed class Configuration : DbMigrationsConfiguration<MediaMonitoringSystemDbContext>
     {

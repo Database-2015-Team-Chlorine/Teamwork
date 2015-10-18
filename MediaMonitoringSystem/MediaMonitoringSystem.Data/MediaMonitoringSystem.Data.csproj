@@ -29,12 +29,27 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.0.1\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Legacy">
+      <HintPath>..\packages\mongocsharpdriver.2.0.1\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -46,14 +61,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IGenericRepository.cs" />
-    <Compile Include="Contracts\IMediaMonitoringSystemData.cs" />
-    <Compile Include="Contracts\IMediaMonitoringSystemDbContext.cs" />
-    <Compile Include="MediaMonitoringSystemData.cs" />
-    <Compile Include="MediaMonitoringSystemDbContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MongoDb\MediaDistributorsMongoDbContext.cs" />
+    <Compile Include="MSSQL\Contracts\IGenericRepository.cs" />
+    <Compile Include="MSSQL\Contracts\IMediaMonitoringSystemData.cs" />
+    <Compile Include="MSSQL\Contracts\IMediaMonitoringSystemDbContext.cs" />
+    <Compile Include="MSSQL\MediaMonitoringSystemData.cs" />
+    <Compile Include="MSSQL\MediaMonitoringSystemDbContext.cs" />
+    <Compile Include="MSSQL\Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="MSSQL\Repositories\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

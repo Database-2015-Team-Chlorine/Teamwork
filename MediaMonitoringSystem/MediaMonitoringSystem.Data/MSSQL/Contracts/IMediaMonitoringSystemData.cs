@@ -1,6 +1,7 @@
-﻿namespace MediaMonitoringSystem.Data.Contracts
+﻿namespace MediaMonitoringSystem.Data.MSSQL.Contracts
 {
     using MediaMonitoringSystem.Models;
+    using MediaMonitoringSystem.Models.MSSQL;
 
     public interface IMediaMonitoringSystemData
     {
