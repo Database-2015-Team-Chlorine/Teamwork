@@ -20,35 +20,35 @@
     {
         public static void Main()
         {
-            var mongo = new MongoModel();
-            var distributors = mongo.GenerateDistributors(3);
-
-            mongo.InsertToMongo(distributors);
-            var distributorsToSql = mongo.GetFromMongo();
+            GetDataToCreatPdf();
 
 
 
+            //var mongo = new MongoModel();
+            //var distributors = mongo.GenerateDistributors(3);
 
-            var db = new MediaMonitoringSystemDbContext();
+            //mongo.InsertToMongo(distributors);
+            //var distributorsToSql = mongo.GetFromMongo();
 
-            foreach (var d in distributorsToSql)
-            {
-                db.MediaDistributors.Add(d);
-            }
+            //var db = new MediaMonitoringSystemDbContext();
 
-            db.SaveChanges();
+            //foreach (var d in distributorsToSql)
+            //{
+            //    db.MediaDistributors.Add(d);
+            //}
 
-            //// Try this to create the files in Debug folder
-            DemoExporters.RunMe();
+            //db.SaveChanges();
 
-            //Test Archiver UNcommend to test it
-            IArchiever zipArchiver = new ZipArchiever();
-            string zipPath = "../../MOCK_DATA.zip";
-            string extractedPath = "../../Export/";
-            zipArchiver.UnArchieve(zipPath, extractedPath);
+            ////// Try this to create the files in Debug folder
+            //DemoExporters.RunMe();
+
+            ////Test Archiver UNcommend to test it
+            //IArchiever zipArchiver = new ZipArchiever();
+            //string zipPath = "../../MOCK_DATA.zip";
+            //string extractedPath = "../../Export/";
+            //zipArchiver.UnArchieve(zipPath, extractedPath);
 
 
-            //GetDataToCreatPdf();
             
             //TODO: Throws exceptiopn adding articles
             //IArchiever zipArchiver = new ZipArchiever();

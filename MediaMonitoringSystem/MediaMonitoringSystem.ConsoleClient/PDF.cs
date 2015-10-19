@@ -20,41 +20,55 @@
             {
                 doc.Open();
 
-                var table = new PdfPTable(1);
-                table.AddCell("Themes");
+                var table = new PdfPTable(5);
+
+                var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                var headerPhrase = new Phrase();
+                
+
+                headerPhrase.Add(new Chunk("Themes", boldFont));
+
+                var headerCell = new PdfPCell(headerPhrase);
+
+                headerCell.HorizontalAlignment = 1;
+
+                headerCell.Colspan = 5;
+                headerCell.BackgroundColor = new BaseColor(232, 232, 232);
+                headerCell.Border = 1;
+                table.AddCell(headerCell);
 
                 foreach (var group in groupsOfThemes)
                 {
-                    table.AddCell(group.Key.ToString());
+                    var date = new PdfPCell(new Phrase("Date: " + group.Key.ToString("MMMM dd, yyyy")));
+                    date.Colspan = 5;
+                    table.AddCell(date);
 
-                    var innerTable = new PdfPTable(5);
-
-                    innerTable.AddCell("Theme");
-                    innerTable.AddCell("Client Name");
-                    innerTable.AddCell("Count Of Medias");
-                    innerTable.AddCell("End date");
-                    innerTable.AddCell("Price");
+                    table.AddCell(new Phrase(new Chunk("Name", boldFont)));
+                    table.AddCell(new Phrase(new Chunk("Client Name", boldFont)));
+                    table.AddCell(new Phrase(new Chunk("Count Of Medias", boldFont)));
+                    table.AddCell(new Phrase(new Chunk("End date", boldFont)));
+                    table.AddCell(new Phrase(new Chunk("Price", boldFont)));
 
                     decimal sum = 0.0M;
 
                     foreach (var theme in group)
                     {
-                        innerTable.AddCell(theme.Name.ToString());
-                        innerTable.AddCell(theme.Client.ToString());
-                        innerTable.AddCell(theme.CountMedias.ToString());
-                        innerTable.AddCell(theme.EndDate.ToString());
-                        innerTable.AddCell(theme.Price.ToString());
-                        
+                        table.AddCell(theme.Name);
+                        table.AddCell(theme.Client);
+                        table.AddCell(theme.CountMedias.ToString());
+                        table.AddCell(theme.EndDate.ToString());
+                        table.AddCell(theme.Price.ToString());
+
                         sum += theme.Price;
                     }
 
-                    var tableSum = new PdfPTable(new float[] { 75, 25 });
-                    tableSum.AddCell("Sum:");
-                    tableSum.AddCell(sum.ToString());
+                    var sumText = new PdfPCell(new Phrase("SUM: "));
+                    sumText.Colspan = 4;
 
-                    table.AddCell(innerTable);
-                    table.AddCell(tableSum);
+                    table.AddCell(sumText);
+                    var footer = new PdfPCell(new Phrase(new Chunk(sum.ToString(), boldFont)));
 
+                    table.AddCell(footer);
                 }
 
                 doc.Add(table);
