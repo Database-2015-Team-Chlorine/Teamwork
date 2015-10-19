@@ -1,13 +1,13 @@
 ﻿namespace MediaMonitoringSystem.Data.MySQL
 {
     using System.Linq;
-    using Models.MSSQL;
+    using Models;
     using Telerik.OpenAccess;
     using Telerik.OpenAccess.Metadata;
 
     public partial class FluentModel : OpenAccessContext
     {
-        private static string connectionStringName = @"connectionId";
+        private static string connectionStringName = @"MySQL";
 
         private static BackendConfiguration backend = GetBackendConfiguration();
         private static MetadataSource metadataSource = new FluentModelMetadataSource();
@@ -16,11 +16,11 @@
             : base(connectionStringName, backend, metadataSource)
         { }
 
-        public IQueryable<Package> Customers
+        public IQueryable<MySqlMediaModel> Customers
         {
             get
             {
-                return this.GetAll<Package>();
+                return this.GetAll<MySqlMediaModel>();
             }
         }
 

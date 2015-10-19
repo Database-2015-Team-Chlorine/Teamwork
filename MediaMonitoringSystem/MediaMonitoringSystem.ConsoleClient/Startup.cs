@@ -10,6 +10,8 @@
     using MediaMonitoringSystem.Data.Exporters;
     using MediaMonitoringSystem.Data.MSSQL;
     using System.IO;
+    using Data.MySQL;
+    using Data.MySQL.Models;
     using MediaMonitoringSystem.Models.MSSQL;
     using Newtonsoft.Json;
     using MediaMonitoringSystem.Models.PDF;
@@ -61,8 +63,6 @@
             //IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver, excelImporter, paths);
 
             //bulkImporter.ImportAll();
-
-
             
 
         }
