@@ -107,10 +107,11 @@
     <Compile Include="Exporters\IExporter.cs" />
     <Compile Include="Exporters\JSONExporter.cs" />
     <Compile Include="Exporters\XMLExporter.cs" />
-    <Compile Include="Importers\ExcelBulkImporter.cs" />
-    <Compile Include="Importers\ExcelImporter.cs" />
+    <Compile Include="Importers\ExcelImporter\ExcelBulkImporter.cs" />
+    <Compile Include="Importers\ExcelImporter\ExcelImporter.cs" />
     <Compile Include="Importers\IBulkImporter.cs" />
     <Compile Include="Importers\IImporter.cs" />
+    <Compile Include="Importers\XMLImporter\XmlArticlesImporter.cs" />
     <Compile Include="MongoDb\MediaDistributorsMongoDbContext.cs" />
     <Compile Include="MSSQL\Contracts\IGenericRepository.cs" />
     <Compile Include="MSSQL\Contracts\IMediaMonitoringSystemData.cs" />

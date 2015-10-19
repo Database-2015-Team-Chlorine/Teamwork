@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediaMonitoringSystem.Data.Importers;
 using MediaMonitoringSystem.Data.MSSQL;
 using System.Data.OleDb;
 using MediaMonitoringSystem.Models.MSSQL;
@@ -11,7 +12,7 @@ using System.Globalization;
 using MediaMonitoringSystem.Data.MSSQL.Contracts;
 using MediaMonitoringSystem.Models.MSSQL.Contracts;
 
-namespace MediaMonitoringSystem.Data.Importers
+namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
 {
     public class ExcelImporter : IImporter
     {

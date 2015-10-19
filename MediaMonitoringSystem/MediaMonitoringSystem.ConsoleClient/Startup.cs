@@ -3,6 +3,8 @@
     using System;
     using System.Linq;
     using MediaMonitoringSystem.Data.Importers;
+    using MediaMonitoringSystem.Data.Importers.ExcelImporter;
+    using MediaMonitoringSystem.Data.Importers.XmlImporter;
     using iTextSharp.text.pdf;
     using iTextSharp.text;
     using iTextSharp.text.pdf.collection;
@@ -49,8 +51,7 @@
             //zipArchiver.UnArchieve(zipPath, extractedPath);
 
 
-            
-            //TODO: Throws exceptiopn adding articles
+           
             //IArchiever zipArchiver = new ZipArchiever();
             //IImporter excelImporter = new ExcelImporter(new MediaMonitoringSystemDbContext());
 
@@ -63,6 +64,10 @@
             //IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver, excelImporter, paths);
 
             //bulkImporter.ImportAll();
+
+            XmlArticlesImporter xmlImporter = new XmlArticlesImporter(new MediaMonitoringSystemDbContext());
+            string path = "../../articles.xml";
+            xmlImporter.ImportArticlesFrom(path);
             
 
         }

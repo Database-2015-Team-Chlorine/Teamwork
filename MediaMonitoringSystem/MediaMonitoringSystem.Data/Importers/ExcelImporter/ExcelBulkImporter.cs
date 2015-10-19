@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Data.Importers
+﻿namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
 {
     using MediaMonitoringSystem.Data.Archievers;
     using System;
@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using MediaMonitoringSystem.Data.Importers;
     using MediaMonitoringSystem.Data.MSSQL.Contracts;
 
     public class ExcelBulkImporter : IBulkImporter
