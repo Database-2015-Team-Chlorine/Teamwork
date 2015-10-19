@@ -1,11 +1,8 @@
 ﻿namespace MediaMonitoringSystem.ConsoleClient
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
     using MediaMonitoringSystem.Data.MSSQL;
@@ -30,8 +27,6 @@
                 .GroupBy(gr => gr.StartDate)
                 .ToList();
 
-
-
             var doc = new Document();
             var stream = new FileStream("Test.pdf", FileMode.Create);
 
@@ -41,49 +36,44 @@
 
                 var table = new PdfPTable(1);
                 table.AddCell("Themes");
-                doc.Add(Chunk.NEWLINE);
 
-
-                foreach (var gr in groupsOfThemes)
+                foreach (var group in groupsOfThemes)
                 {
-                    table.AddCell(gr.Key.ToString());
-                    doc.Add(Chunk.NEWLINE);
+                    table.AddCell(group.Key.ToString());
 
-                    Console.WriteLine(gr.Key);
                     var innerTable = new PdfPTable(5);
 
                     innerTable.AddCell("Theme");
                     innerTable.AddCell("Client Name");
                     innerTable.AddCell("Count Of Medias");
+                    innerTable.AddCell("End date");
                     innerTable.AddCell("Price");
-                    innerTable.AddCell("Until");
 
+                    decimal sum = 0.0M;
 
-                    foreach (var item in gr)
+                    foreach (var theme in group)
                     {
-                        innerTable.AddCell(item.Name.ToString());
-                        innerTable.AddCell(item.Client.ToString());
-                        innerTable.AddCell(item.CountMedias.ToString());
-                        innerTable.AddCell(item.Price.ToString());
-                        innerTable.AddCell(item.EndDate.ToString());
-
-                        doc.Add(Chunk.NEWLINE);
-                        Console.WriteLine(item.Client);
+                        innerTable.AddCell(theme.Name.ToString());
+                        innerTable.AddCell(theme.Client.ToString());
+                        innerTable.AddCell(theme.CountMedias.ToString());
+                        innerTable.AddCell(theme.EndDate.ToString());
+                        innerTable.AddCell(theme.Price.ToString());
+                        
+                        sum += theme.Price;
                     }
+
+                    var tableSum = new PdfPTable(new float[] { 75, 25 });
+                    tableSum.AddCell("Sum:");
+                    tableSum.AddCell(sum.ToString());
+
                     table.AddCell(innerTable);
+                    table.AddCell(tableSum);
 
                 }
 
-
-
                 doc.Add(table);
-
                 doc.Close();
             }
-
-
-
-
         }
     }
 }

@@ -10,6 +10,7 @@
     using MediaMonitoringSystem.Data.MSSQL;
     using System.IO;
     using MediaMonitoringSystem.Models.MSSQL;
+    using Newtonsoft.Json;
 
     public class Startup
     {
@@ -42,9 +43,8 @@
             //zipArchiver.UnArchieve(zipPath, extractedPath);
 
 
-            var pdf = new Pdf();
-            pdf.GetPdf();
-            
+            //var pdf = new Pdf();
+            //pdf.GetPdf();
         }
     }
 }
