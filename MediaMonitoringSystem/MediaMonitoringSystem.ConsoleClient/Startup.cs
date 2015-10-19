@@ -2,18 +2,8 @@
 {
     using System;
     using System.Linq;
-    using MediaMonitoringSystem.Data;
-    using System.Data.Entity;
-    using MediaMonitoringSystem.Models;
+    using MediaMonitoringSystem.Data.Archievers;
     using MediaMonitoringSystem.Data.MSSQL;
-    using MediaMonitoringSystem.Data.MongoDb;
-    using MediaMonitoringSystem.MongoDb.ConsoleClient;
-    using MongoDB.Driver.Builders;
-    using System.Collections.Generic;
-    using MediaMonitoringSystem.Models.Contracts;
-    using MediaMonitoringSystem.Models.MSSQL;
-    using MediaMonitoringSystem.Models.MSSQL.Contracts;
-    using MediaMonitoringSystem.Data.Exporters;
 
     public class Startup
     {
@@ -34,10 +24,16 @@
                 //db.MediaDistributors.Add(d);
             }
 
-           //Try this to create the files in Debug folder
+            //Try this to create the files in Debug folder
 
-           //DemoExporters.RunMe();
+            //DemoExporters.RunMe();
 
+            //Test Archiver UNcommend to test it
+
+            //IArchiever zipArchiver = new ZipArchiever();
+            //string zipPath = "../../MOCK_DATA.zip";
+            //string extractedPath = "../../Export/";
+            //zipArchiver.UnArchieve(zipPath, extractedPath);
         }
     }
 }
