@@ -37,7 +37,7 @@ namespace MediaMonitoringSystem.Data.Importers
                     while (dr.Read())
                     {
                         string name = dr[0].ToString();
-
+                       
                         this.db.Clients.Add(new Client
                         {
                             Name = name
@@ -61,7 +61,7 @@ namespace MediaMonitoringSystem.Data.Importers
             using (OleDbConnection connection = new OleDbConnection(con))
             {
                 connection.Open();
-                OleDbCommand command = new OleDbCommand("select * from [themes$]", connection);
+                OleDbCommand command = new OleDbCommand("select * from [clientsAndThemes$]", connection);
                 using (OleDbDataReader dr = command.ExecuteReader())
                 {
 
@@ -69,11 +69,22 @@ namespace MediaMonitoringSystem.Data.Importers
                     {
                         string name = dr[0].ToString();
                         DateTime startDate = Convert.ToDateTime(dr[1]);
-                        int clientID = int.Parse(dr[2].ToString());
+                        DateTime endDate= Convert.ToDateTime(dr[2]);
+                        int packageID = int.Parse(dr[3].ToString());
+                        int clientID = int.Parse(dr[4].ToString());
 
-                        // this.themes.Add(new Theme {Name = name, StartDate = startDate, ClientId = clientID });
+                        this.db.Themes.Add(new Theme
+                        {
+                            Name = name,
+                            StartDate = startDate,
+                            EndDate = endDate,
+                            PackageId = packageID,
+                            ClientId = clientID
 
+                        });
 
+                        Console.WriteLine("themes with clients filed");
+                        this.db.SaveChanges();
                     }
 
                 }
