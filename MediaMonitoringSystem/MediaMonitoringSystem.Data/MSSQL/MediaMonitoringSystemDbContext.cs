@@ -5,6 +5,7 @@
     using MediaMonitoringSystem.Data.MSSQL.Contracts;
     using MediaMonitoringSystem.Data.MSSQL.Migrations;
     using MediaMonitoringSystem.Models.MSSQL;
+    using System.Linq;
 
     public class MediaMonitoringSystemDbContext : DbContext, IMediaMonitoringSystemDbContext
     {

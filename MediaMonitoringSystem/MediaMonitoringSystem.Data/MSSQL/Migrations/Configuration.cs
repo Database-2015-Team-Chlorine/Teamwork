@@ -19,6 +19,12 @@ namespace MediaMonitoringSystem.Data.MSSQL.Migrations
                 Name = "DbMedia5"
             };
 
+            var departament = new Department
+            {
+                Name = "Departament"
+            };
+
+            context.Departments.Add(departament);
             context.MediaDistributors.Add(pesho);
         }
     }

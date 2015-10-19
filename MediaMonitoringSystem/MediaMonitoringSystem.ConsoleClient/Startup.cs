@@ -18,42 +18,52 @@
     {
         public static void Main()
         {
-            //var mongo = new MongoModel();
-            //var distributors = mongo.GenerateDistributors(3);
-            //mongo.InsertToMongo(distributors);
-            //var distributorsToSql = mongo.GetFromMongo();
-            //Console.WriteLine(distributorsToSql);
-            //var db = new MediaMonitoringSystemData();
-            //foreach (var d in distributorsToSql)
-            //{
-            //    //throw new Exeption dont know why????
-            //    //db.MediaDistributors.Add(d);
-            //}
-            //Try this to create the files in Debug folder
-            //DemoExporters.RunMe();
-            ////Test Archiver UNcommend to test it
-            //IArchiever zipArchiver = new ZipArchiever();
-            //string zipPath = "../../MOCK_DATA.zip";
-            //string extractedPath = "../../Export/";
-            //zipArchiver.UnArchieve(zipPath, extractedPath);
+            var mongo = new MongoModel();
+            var distributors = mongo.GenerateDistributors(3);
+
+            mongo.InsertToMongo(distributors);
+            var distributorsToSql = mongo.GetFromMongo();
 
 
-            GetDataToCreatPdf();
+
+
+            var db = new MediaMonitoringSystemDbContext();
+
+            foreach (var d in distributorsToSql)
+            {
+                db.MediaDistributors.Add(d);
+            }
+
+            db.SaveChanges();
+
+            //// Try this to create the files in Debug folder
+            DemoExporters.RunMe();
+
+            //Test Archiver UNcommend to test it
+            IArchiever zipArchiver = new ZipArchiever();
+            string zipPath = "../../MOCK_DATA.zip";
+            string extractedPath = "../../Export/";
+            zipArchiver.UnArchieve(zipPath, extractedPath);
+
+
+            //GetDataToCreatPdf();
             
             //TODO: Throws exceptiopn adding articles
-            IArchiever zipArchiver = new ZipArchiever();
-            IImporter excelImporter = new ExcelImporter(new MediaMonitoringSystemDbContext());
+            //IArchiever zipArchiver = new ZipArchiever();
+            //IImporter excelImporter = new ExcelImporter(new MediaMonitoringSystemDbContext());
 
-            string [] paths = new string[]{
-                "../../MOCK_DATA.zip",
-                "../../Export/",
-                "../../Export/MOCK_DATA/MOCK_DATA.xls"
-            };
+            //string[] paths = new string[]{
+            //    "../../MOCK_DATA.zip",
+            //    "../../Export/",
+            //    "../../Export/MOCK_DATA/MOCK_DATA.xls"
+            //};
 
-            IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver, excelImporter, paths);
+            //IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver, excelImporter, paths);
 
-            bulkImporter.ImportAll();
+            //bulkImporter.ImportAll();
 
+
+            
 
         }
 
@@ -64,7 +74,7 @@
             var groupsOfThemes =
                 db.Themes
                     .All()
-                    .Select(t => new Theme
+                    .Select(t => new MediaMonitoringSystem.Models.PDF.Theme
                             {
                                 Name = t.Name,
                                 Client = t.Client.Name,
@@ -77,7 +87,7 @@
                     .GroupBy(gr => gr.StartDate)
                     .ToList();
 
-            var pathForPdf = "../../../PDFs/Themes.pdf";
+            string pathForPdf = "../../../PDFs/Themes.pdf";
 
             Pdf.GeneratePdf(groupsOfThemes, pathForPdf);
         }
