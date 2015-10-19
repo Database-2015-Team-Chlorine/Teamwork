@@ -34,15 +34,17 @@ namespace MediaMonitoringSystem.Data.Importers.XmlImporter
 
             foreach (var article in articles)
             {
+                DateTime date = Convert.ToDateTime(article.Date);
+                Console.WriteLine(date);
                 this.db.Articles.Add(new Article
                         {
                             Title = article.Title.ToString(),
                             Content = article.Content.ToString(),
-                            PublishedOn = Convert.ToDateTime(article.Date),
+                            PublishedOn = date,
                             MediaId = int.Parse(article.MediaID)
                         });
+                //this.db.SaveChanges();
                 Console.WriteLine("importing " + article.Title);
-
             }
 
         }
