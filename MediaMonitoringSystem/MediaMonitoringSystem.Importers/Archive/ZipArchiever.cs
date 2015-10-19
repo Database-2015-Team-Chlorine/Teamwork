@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Data.Archievers
+﻿namespace MediaMonitoringSystem.Importers.Archive
 {
     using System;
     using System.Collections.Generic;
@@ -7,12 +7,10 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using MediaMonitoringSystem.Importers.Contracts;
+
     public class ZipArchiever : IArchiever
     {
-        public ZipArchiever()
-        {
-        }
-
         public void SendToArchieve(string rootFolder, string zipPath)
         {
             if (File.Exists(zipPath))

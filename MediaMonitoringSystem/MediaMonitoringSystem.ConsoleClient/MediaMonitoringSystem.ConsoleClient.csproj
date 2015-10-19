@@ -91,9 +91,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExportJson.cs" />
-    <Compile Include="MongoModels.cs" />
-    <Compile Include="Pdf.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,13 +104,14 @@
       <Project>{15248eac-537d-4bbf-8d04-e57da4405db2}</Project>
       <Name>MediaMonitoringSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MediaMonitoringSystem.Exporters\MediaMonitoringSystem.Exporters.csproj">
+      <Project>{3dc6ecd4-5d05-4fe3-99af-7beedfea88e0}</Project>
+      <Name>MediaMonitoringSystem.Exporters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MediaMonitoringSystem.Models\MediaMonitoringSystem.Models.csproj">
       <Project>{0c011e1a-db91-498c-8647-b20db228835c}</Project>
       <Name>MediaMonitoringSystem.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="articles.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" />

@@ -1,11 +1,9 @@
 ﻿namespace MediaMonitoringSystem.Data.MSSQL.Repositories
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
-    using System.Linq.Expressions;
-    using MediaMonitoringSystem.Data.MSSQL.Contracts;
+    using MediaMonitoringSystem.Data.Contracts;
 
     public class GenericRepository<T> : IGenericRepository<T>
         where T : class

@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Data.Archievers
+﻿namespace MediaMonitoringSystem.Importers.Contracts
 {
     using System;
     using System.Linq;

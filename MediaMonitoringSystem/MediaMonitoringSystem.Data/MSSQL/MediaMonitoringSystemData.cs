@@ -2,9 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using MediaMonitoringSystem.Data.MSSQL.Contracts;
+    using MediaMonitoringSystem.Data.Contracts;
     using MediaMonitoringSystem.Data.MSSQL.Repositories;
-    using MediaMonitoringSystem.Models;
     using MediaMonitoringSystem.Models.MSSQL;
 
     public class MediaMonitoringSystemData : IMediaMonitoringSystemData

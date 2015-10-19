@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediaMonitoringSystem.Data.Importers;
-using MediaMonitoringSystem.Data.MSSQL;
-using System.Data.OleDb;
-using MediaMonitoringSystem.Models.MSSQL;
-using System.Globalization;
-using MediaMonitoringSystem.Data.MSSQL.Contracts;
-using MediaMonitoringSystem.Models.MSSQL.Contracts;
-
-namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
+﻿namespace MediaMonitoringSystem.Importers.Excel
 {
+    using System;
+    using System.Data.OleDb;
+    using MediaMonitoringSystem.Data.Contracts;
+    using MediaMonitoringSystem.Importers.Contracts;
+    using MediaMonitoringSystem.Models.MSSQL;
+    using MediaMonitoringSystem.Models.MSSQL.Contracts;
+
     public class ExcelImporter : IImporter
     {
         private readonly IMediaMonitoringSystemDbContext db;
@@ -38,7 +31,7 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                     while (dr.Read())
                     {
                         string name = dr[0].ToString();
-                       
+
                         this.db.Clients.Add(new Client
                         {
                             Name = name
@@ -47,9 +40,7 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                         Console.WriteLine("clients filed");
                         this.db.SaveChanges();
                     }
-
                 }
-
             }
         }
 
@@ -62,34 +53,18 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
             using (OleDbConnection connection = new OleDbConnection(con))
             {
                 connection.Open();
-                OleDbCommand command = new OleDbCommand("select * from [clientsAndThemes$]", connection);
+                OleDbCommand command = new OleDbCommand("select * from [themes$]", connection);
                 using (OleDbDataReader dr = command.ExecuteReader())
                 {
-
                     while (dr.Read())
                     {
                         string name = dr[0].ToString();
                         DateTime startDate = Convert.ToDateTime(dr[1]);
-                        DateTime endDate= Convert.ToDateTime(dr[2]);
-                        int packageID = int.Parse(dr[3].ToString());
-                        int clientID = int.Parse(dr[4].ToString());
+                        int clientID = int.Parse(dr[2].ToString());
 
-                        this.db.Themes.Add(new Theme
-                        {
-                            Name = name,
-                            StartDate = startDate,
-                            EndDate = endDate,
-                            PackageId = packageID,
-                            ClientId = clientID
-
-                        });
-
-                        Console.WriteLine("themes with clients filed");
-                        this.db.SaveChanges();
+                        // this.themes.Add(new Theme {Name = name, StartDate = startDate, ClientId = clientID });
                     }
-
                 }
-
             }
         }
 
@@ -117,11 +92,8 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                         Console.WriteLine("departments filed");
                         this.db.SaveChanges();
                     }
-
                 }
-
             }
-
         }
 
         public void ImportEmployeesFrom(string path)
@@ -150,11 +122,8 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                         Console.WriteLine("employees filed");
                         this.db.SaveChanges();
                     }
-
                 }
-
             }
-
         }
 
         public void ImportMediaDistributorsFrom(string path)
@@ -181,11 +150,8 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                         Console.WriteLine("media Dist filed");
                         this.db.SaveChanges();
                     }
-
                 }
-
             }
-
         }
 
         public void ImportMediaPackagesFrom(string path)
@@ -214,9 +180,7 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                         Console.WriteLine("packages filed");
                         this.db.SaveChanges();
                     }
-
                 }
-
             }
         }
 
@@ -252,9 +216,7 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                         Console.WriteLine("medias filed!");
                         this.db.SaveChanges();
                     }
-
                 }
-
             }
         }
 
@@ -284,13 +246,11 @@ namespace MediaMonitoringSystem.Data.Importers.ExcelImporter
                             Content = content,
                             PublishedOn = date,
                             MediaId = mediaId//EXEPTION
-
                         });
 
                         Console.WriteLine("Articles filed!!");
                         this.db.SaveChanges();
                     }
-
                 }
             }
         }

@@ -101,21 +101,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archievers\IArchiever.cs" />
-    <Compile Include="Archievers\ZipArchiever.cs" />
-    <Compile Include="Exporters\DemoExporters.cs" />
-    <Compile Include="Exporters\IExporter.cs" />
-    <Compile Include="Exporters\JSONExporter.cs" />
-    <Compile Include="Exporters\XMLExporter.cs" />
-    <Compile Include="Importers\ExcelImporter\ExcelBulkImporter.cs" />
-    <Compile Include="Importers\ExcelImporter\ExcelImporter.cs" />
-    <Compile Include="Importers\IBulkImporter.cs" />
-    <Compile Include="Importers\IImporter.cs" />
-    <Compile Include="Importers\XMLImporter\XmlArticlesImporter.cs" />
+    <Compile Include="Contracts\IMediaDistributorsMongoDbContext.cs" />
     <Compile Include="MongoDb\MediaDistributorsMongoDbContext.cs" />
-    <Compile Include="MSSQL\Contracts\IGenericRepository.cs" />
-    <Compile Include="MSSQL\Contracts\IMediaMonitoringSystemData.cs" />
-    <Compile Include="MSSQL\Contracts\IMediaMonitoringSystemDbContext.cs" />
+    <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Contracts\IMediaMonitoringSystemData.cs" />
+    <Compile Include="Contracts\IMediaMonitoringSystemDbContext.cs" />
+    <Compile Include="MongoDb\MediaDistributorsMongoData.cs" />
     <Compile Include="MSSQL\MediaMonitoringSystemData.cs" />
     <Compile Include="MSSQL\MediaMonitoringSystemDbContext.cs" />
     <Compile Include="MSSQL\Migrations\Configuration.cs" />

@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Data.MSSQL.Contracts
+﻿namespace MediaMonitoringSystem.Data.Contracts
 {
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
