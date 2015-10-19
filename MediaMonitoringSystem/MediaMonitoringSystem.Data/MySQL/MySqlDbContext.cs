@@ -4,6 +4,7 @@
 
     public class MySqlDbContext : FluentModel
     {
+        // Ensures that the Database always exists 
         public MySqlDbContext()
         {
             UpdateDatabase();
