@@ -2,8 +2,10 @@
 {
     using System;
     using System.Linq;
+    using Data.MySQL;
     using MediaMonitoringSystem.Data.Archievers;
     using MediaMonitoringSystem.Data.MSSQL;
+    using Telerik.OpenAccess;
 
     public class Startup
     {
@@ -34,6 +36,51 @@
             //string zipPath = "../../MOCK_DATA.zip";
             //string extractedPath = "../../Export/";
             //zipArchiver.UnArchieve(zipPath, extractedPath);
+
+            UpdateDatabase();
+
+            using (FluentModel dbContext = new FluentModel())
+            {
+                MediaModel media = new MediaModel
+                {
+                    Name = "Sofia news",
+                    Distributor = "Pesho",
+                    TotalSells = 10,
+                    Incomes = 153
+                };
+
+                dbContext.Add(media);
+                dbContext.SaveChanges();
+            }
         }
+
+        private static void UpdateDatabase()
+        {
+            using (var context = new FluentModel())
+            {
+                var schemaHandler = context.GetSchemaHandler();
+                EnsureDB(schemaHandler);
+            }
+        }
+
+        private static void EnsureDB(ISchemaHandler schemaHandler)
+        {
+            string script = null;
+            if (schemaHandler.DatabaseExists())
+            {
+                script = schemaHandler.CreateUpdateDDLScript(null);
+            }
+            else
+            {
+                schemaHandler.CreateDatabase();
+                script = schemaHandler.CreateDDLScript();
+            }
+
+            if (!string.IsNullOrEmpty(script))
+            {
+                schemaHandler.ExecuteDDLScript(script);
+            }
+        }
+
     }
 }

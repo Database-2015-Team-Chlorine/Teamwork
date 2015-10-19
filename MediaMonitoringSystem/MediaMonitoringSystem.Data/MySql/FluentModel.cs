@@ -7,7 +7,7 @@
 
     public partial class FluentModel : OpenAccessContext
     {
-        private static string connectionStringName = @"connectionId";
+        private static string connectionStringName = @"MySQL";
 
         private static BackendConfiguration backend = GetBackendConfiguration();
         private static MetadataSource metadataSource = new FluentModelMetadataSource();
