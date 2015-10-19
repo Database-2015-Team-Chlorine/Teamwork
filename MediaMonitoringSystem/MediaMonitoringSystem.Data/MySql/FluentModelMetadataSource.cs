@@ -1,6 +1,7 @@
 ﻿namespace MediaMonitoringSystem.Data.MySQL
 {
     using System.Collections.Generic;
+    using Models;
     using Telerik.OpenAccess.Metadata;
     using Telerik.OpenAccess.Metadata.Fluent;
 
@@ -10,7 +11,7 @@
         {
             List<MappingConfiguration> configurations = new List<MappingConfiguration>();
 
-            var mediaMapping = new MappingConfiguration<MediaModel>();
+            var mediaMapping = new MappingConfiguration<MySqlMediaModel>();
             mediaMapping.MapType(m => new
             {
                 Id = m.Id,

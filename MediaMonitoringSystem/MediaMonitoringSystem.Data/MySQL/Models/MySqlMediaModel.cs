@@ -1,7 +1,7 @@
 ﻿
-namespace MediaMonitoringSystem.Data.MySQL
+namespace MediaMonitoringSystem.Data.MySQL.Models
 {
-    public class Media
+    public class MySqlMediaModel
     {
         public int Id { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿namespace MediaMonitoringSystem.Data.MySQL
 {
     using System.Linq;
-    using Models.MSSQL;
+    using Models;
     using Telerik.OpenAccess;
     using Telerik.OpenAccess.Metadata;
 
@@ -16,11 +16,11 @@
             : base(connectionStringName, backend, metadataSource)
         { }
 
-        public IQueryable<Package> Customers
+        public IQueryable<MySqlMediaModel> Customers
         {
             get
             {
-                return this.GetAll<Package>();
+                return this.GetAll<MySqlMediaModel>();
             }
         }
 

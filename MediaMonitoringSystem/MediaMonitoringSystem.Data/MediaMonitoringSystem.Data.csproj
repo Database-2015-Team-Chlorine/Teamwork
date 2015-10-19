@@ -111,9 +111,9 @@
     <Compile Include="MSSQL\MediaMonitoringSystemData.cs" />
     <Compile Include="MSSQL\MediaMonitoringSystemDbContext.cs" />
     <Compile Include="MSSQL\Migrations\Configuration.cs" />
+    <Compile Include="MySQL\Models\MySqlMediaModel.cs" />
     <Compile Include="MySQL\FluentModel.cs" />
     <Compile Include="MySQL\FluentModelMetadataSource.cs" />
-    <Compile Include="MySQL\Media.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MSSQL\Repositories\GenericRepository.cs" />
   </ItemGroup>

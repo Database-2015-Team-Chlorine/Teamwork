@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using Data.MySQL;
+    using Data.MySQL.Models;
     using MediaMonitoringSystem.Data.Archievers;
     using MediaMonitoringSystem.Data.MSSQL;
     using Telerik.OpenAccess;
@@ -41,7 +42,7 @@
 
             using (FluentModel dbContext = new FluentModel())
             {
-                MediaModel media = new MediaModel
+                var media = new MySqlMediaModel
                 {
                     Name = "Sofia news",
                     Distributor = "Pesho",
