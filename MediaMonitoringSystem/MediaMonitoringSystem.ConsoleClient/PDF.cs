@@ -1,34 +1,20 @@
 ﻿namespace MediaMonitoringSystem.ConsoleClient
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
     using MediaMonitoringSystem.Data.MSSQL;
+    using MediaMonitoringSystem.Models.PDF;
 
-    public class Pdf
+    public static class Pdf
     {
-        public void GetPdf()
+        public static void GeneratePdf(IList<IGrouping<DateTime, Theme>> groupsOfThemes, string path)
         {
-            var db = new MediaMonitoringSystemData();
-
-            var groupsOfThemes = db.Themes.All()
-                .Select(t => new
-                {
-                    Name = t.Name,
-                    Client = t.Client.Name,
-                    CountMedias = t.Package.CountMedias,
-                    StartDate = t.StartDate,
-                    EndDate = t.EndDate,
-                    Price = t.Package.PricePerMonth
-                })
-                .OrderBy(n => n.Name)
-                .GroupBy(gr => gr.StartDate)
-                .ToList();
-
             var doc = new Document();
-            var stream = new FileStream("Test.pdf", FileMode.Create);
+            var stream = new FileStream(path, FileMode.Create);
 
             using (PdfWriter.GetInstance(doc, stream))
             {
