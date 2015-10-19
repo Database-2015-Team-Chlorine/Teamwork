@@ -19,12 +19,12 @@
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [Range(3, 100)]
+        //[Required]
+        //[Range(3, 100)]
         public int CountMedias { get; set; }
 
-        [Required]
-        [Column(TypeName = "Money")]
+        //[Required]
+        //[Column(TypeName = "Money")]
         public decimal PricePerMonth { get; set; }
 
         public virtual ICollection<Media> Medias
