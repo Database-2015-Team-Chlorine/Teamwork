@@ -19,7 +19,7 @@
                 TotalSells = m.TotalSells,
                 Incomes = m.Incomes
             }).ToTable("Packages");
-            mediaMapping.HasProperty(p => p.Id).IsIdentity();
+            mediaMapping.HasProperty(p => p.Id).IsIdentity(KeyGenerator.Autoinc);
 
             configurations.Add(mediaMapping);
             return configurations;
