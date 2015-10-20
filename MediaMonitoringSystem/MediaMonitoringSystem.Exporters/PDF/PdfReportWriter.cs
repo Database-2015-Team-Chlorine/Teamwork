@@ -12,7 +12,7 @@
 
     public class PdfReportWriter : IDataWriter
     {
-        private const string PathForPdfFile = "../../../PDFs/Themes.pdf";
+        private const string PathForPdfFile = "../../../ExportedFiles/PDFs/Themes.pdf";
 
         public void Generate()
         {
