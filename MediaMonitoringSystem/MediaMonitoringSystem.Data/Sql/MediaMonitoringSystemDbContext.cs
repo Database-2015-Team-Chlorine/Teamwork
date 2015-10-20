@@ -12,7 +12,10 @@
             : base("MediaMonitoringSystem")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MediaMonitoringSystemDbContext, Configuration>());
+<<<<<<< HEAD
             Console.WriteLine("SQL Server created!");
+=======
+>>>>>>> e1c871f4a51ce55ee53ae24534264957938a56bb
         }
 
         public IDbSet<Client> Clients { get; set; }

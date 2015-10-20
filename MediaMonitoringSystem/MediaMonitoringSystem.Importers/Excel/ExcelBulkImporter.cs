@@ -24,11 +24,11 @@
             this.archiever.UnArchieve(zipPath, extractedPath);
 
             this.importer.ImportClientsFrom(filePath);
+            this.importer.ImportMediaPackagesFrom(filePath);
             this.importer.ImportThemesFrom(filePath);
             this.importer.ImportDepartmentsFrom(filePath);
             this.importer.ImportEmployeesFrom(filePath);
             this.importer.ImportMediaDistributorsFrom(filePath);
-            this.importer.ImportMediaPackagesFrom(filePath);
             this.importer.ImportMediasFrom(filePath);
             this.importer.ImportArticlesFrom(filePath);
         }
