@@ -1,5 +1,6 @@
 ﻿namespace MediaMonitoringSystem.Data.Sql
 {
+    using System;
     using System.Data.Entity;
     using MediaMonitoringSystem.Data.Contracts;
     using MediaMonitoringSystem.Data.Sql.Migrations;
@@ -11,7 +12,7 @@
             : base("MediaMonitoringSystem")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MediaMonitoringSystemDbContext, Configuration>());
-            System.Console.WriteLine("SQL Server created!");
+            Console.WriteLine("SQL Server created!");
         }
 
         public IDbSet<Client> Clients { get; set; }

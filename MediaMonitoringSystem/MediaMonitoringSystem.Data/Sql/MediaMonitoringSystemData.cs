@@ -96,7 +96,7 @@
             var typeOfModel = typeof(T);
             if (!this.repositories.ContainsKey(typeOfModel))
             {
-                var type = typeof(GenericRepository<T>);
+                var type = typeof(GenericSqlRepository<T>);
                 this.repositories.Add(typeOfModel, Activator.CreateInstance(type, this.dbContext));
             }
 

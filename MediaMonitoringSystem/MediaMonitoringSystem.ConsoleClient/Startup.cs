@@ -1,9 +1,9 @@
 ﻿namespace MediaMonitoringSystem.ConsoleClient
 {
     using System.Linq;
-
     using MediaMonitoringSystem.Data.MongoDb;
     using MediaMonitoringSystem.Data.Sql;
+    using MediaMonitoringSystem.Data.Sqlite;
     using MediaMonitoringSystem.Exporters.Pdf;
     using MediaMonitoringSystem.Generator;
     using MediaMonitoringSystem.Importers.Archive;
@@ -34,8 +34,10 @@
             {
                 dbSql.MediaDistributors.Add(distributor);
             }
+
             dbSql.SaveChanges();
 
+            var sqlite = new MediaMonitoringPricingData();
 
             // Extracting zip
             IArchiever zipArchiver = new ZipArchiever();
