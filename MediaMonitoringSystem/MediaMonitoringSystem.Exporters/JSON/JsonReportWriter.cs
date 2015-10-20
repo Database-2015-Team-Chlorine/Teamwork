@@ -2,7 +2,7 @@
 {
     using System;
     using System.Linq;
-    using MediaMonitoringSystem.Data.MSSQL;
+    using MediaMonitoringSystem.Data.Sql;
     using MediaMonitoringSystem.Exporters.Contracts;
     using Newtonsoft.Json;
 

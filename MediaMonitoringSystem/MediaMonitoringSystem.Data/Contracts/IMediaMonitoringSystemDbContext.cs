@@ -2,8 +2,8 @@
 {
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using MediaMonitoringSystem.Models;
-    using MediaMonitoringSystem.Models.MSSQL;
+
+    using MediaMonitoringSystem.Models.Sql;
 
     public interface IMediaMonitoringSystemDbContext
     {

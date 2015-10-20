@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Data.MySQL
+﻿namespace MediaMonitoringSystem.Data.MySql
 {
     using System.Collections.Generic;
     using Models;

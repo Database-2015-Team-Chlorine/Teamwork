@@ -1,7 +1,9 @@
 ﻿namespace MediaMonitoringSystem.ConsoleClient
 {
     using System.Linq;
-    using MediaMonitoringSystem.Data.MSSQL;
+
+    using MediaMonitoringSystem.Data.MongoDb;
+    using MediaMonitoringSystem.Data.Sql;
     using MediaMonitoringSystem.Exporters.Pdf;
     using MediaMonitoringSystem.Importers.Archive;
     using MediaMonitoringSystem.Importers.Contracts;
@@ -11,23 +13,21 @@
     {
         public static void Main()
         {
-            var mongo = new MongoModel();
+            var mongo = new MediaDistributorsMongoData();
             var distributors = mongo.GenerateDistributors(3);
 
             mongo.InsertToMongo(distributors);
             var distributorsToSql = mongo.GetFromMongo();
 
-            var db = new MediaMonitoringSystemDbContext();
+            var dbSql = new MediaMonitoringSystemDbContext();
 
-            foreach (var d in distributorsToSql)
+            foreach (var distributor in distributorsToSql)
             {
-                db.MediaDistributors.Add(d);
+                dbSql.MediaDistributors.Add(distributor);
             }
 
-            db.SaveChanges();
+            dbSql.SaveChanges();
 
-            //// Try this to create the files in Debug folder
-           // DemoExporters.RunMe();
 
             //Test Archiver UNcommend to test it
             IArchiever zipArchiver = new ZipArchiever();
@@ -37,7 +37,6 @@
 
             var pdfWriter = new PdfReportWriter();
             pdfWriter.Generate();
-           // GetDataToCreatPdf();
             
             // TODO: Throws exceptiopn adding articles
             IArchiever zipArchiver2 = new ZipArchiever();

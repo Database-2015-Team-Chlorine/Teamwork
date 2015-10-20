@@ -6,9 +6,9 @@
     using System.Linq;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
-    using MediaMonitoringSystem.Data.MSSQL;
+    using MediaMonitoringSystem.Data.Sql;
     using MediaMonitoringSystem.Exporters.Contracts;
-    using MediaMonitoringSystem.Models.PDF;
+    using MediaMonitoringSystem.Models.Pdf;
 
     public class PdfReportWriter : IDataWriter
     {
@@ -78,12 +78,12 @@
             }
         }
 
-        private IList<IGrouping<DateTime, Theme>> GetThemeData()
+        private IList<IGrouping<DateTime, PdfModel>> GetThemeData()
         {
             var db = new MediaMonitoringSystemData();
             var groups = db.Themes
                     .All()
-                    .Select(t => new Theme
+                    .Select(t => new PdfModel
                     {
                         Name = t.Name,
                         Client = t.Client.Name,

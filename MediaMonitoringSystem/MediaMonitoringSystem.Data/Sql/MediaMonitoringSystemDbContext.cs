@@ -1,9 +1,9 @@
-﻿namespace MediaMonitoringSystem.Data.MSSQL
+﻿namespace MediaMonitoringSystem.Data.Sql
 {
     using System.Data.Entity;
     using MediaMonitoringSystem.Data.Contracts;
-    using MediaMonitoringSystem.Data.MSSQL.Migrations;
-    using MediaMonitoringSystem.Models.MSSQL;
+    using MediaMonitoringSystem.Data.Sql.Migrations;
+    using MediaMonitoringSystem.Models.Sql;
 
     public class MediaMonitoringSystemDbContext : DbContext, IMediaMonitoringSystemDbContext
     {

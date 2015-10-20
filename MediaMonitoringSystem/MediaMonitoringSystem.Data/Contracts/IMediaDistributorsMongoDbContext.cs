@@ -1,8 +1,10 @@
 ﻿namespace MediaMonitoringSystem.Data.Contracts
 {
     using System.Collections.Generic;
-    using MediaMonitoringSystem.MongoDb.ConsoleClient;
+
     using MongoDB.Driver;
+
+    using MediaMonitoringSystem.Models.MongoDb;
 
     public interface IMediaDistributorsMongoDbContext
     {

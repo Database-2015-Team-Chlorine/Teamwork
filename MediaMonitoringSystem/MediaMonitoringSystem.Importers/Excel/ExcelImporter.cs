@@ -4,8 +4,8 @@
     using System.Data.OleDb;
     using MediaMonitoringSystem.Data.Contracts;
     using MediaMonitoringSystem.Importers.Contracts;
-    using MediaMonitoringSystem.Models.MSSQL;
-    using MediaMonitoringSystem.Models.MSSQL.Contracts;
+    using MediaMonitoringSystem.Models.Contracts;
+    using MediaMonitoringSystem.Models.Sql;
 
     public class ExcelImporter : IImporter
     {
@@ -245,7 +245,7 @@
                             Title = title,
                             Content = content,
                             PublishedOn = date,
-                            MediaId = mediaId//EXEPTION
+                            MediaId = mediaId
                         });
 
                         Console.WriteLine("Articles filed!!");

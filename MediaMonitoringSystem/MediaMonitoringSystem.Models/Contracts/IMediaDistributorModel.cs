@@ -1,7 +1,7 @@
 ﻿namespace MediaMonitoringSystem.Models.Contracts
 {
     using System.Collections.Generic;
-    using MediaMonitoringSystem.MongoDb.ConsoleClient;
+    using MediaMonitoringSystem.Models.MongoDb;
 
     public interface IMediaDistributorModel
     {

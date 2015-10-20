@@ -107,15 +107,15 @@
     <Compile Include="Contracts\IMediaMonitoringSystemData.cs" />
     <Compile Include="Contracts\IMediaMonitoringSystemDbContext.cs" />
     <Compile Include="MongoDb\MediaDistributorsMongoData.cs" />
-    <Compile Include="MSSQL\MediaMonitoringSystemData.cs" />
-    <Compile Include="MSSQL\MediaMonitoringSystemDbContext.cs" />
-    <Compile Include="MSSQL\Migrations\Configuration.cs" />
-    <Compile Include="MySQL\Models\MySqlMediaModel.cs" />
-    <Compile Include="MySQL\FluentModel.cs" />
-    <Compile Include="MySQL\FluentModelMetadataSource.cs" />
-    <Compile Include="MySQL\MySqlDbContext.cs" />
+    <Compile Include="Sql\MediaMonitoringSystemData.cs" />
+    <Compile Include="Sql\MediaMonitoringSystemDbContext.cs" />
+    <Compile Include="Sql\Migrations\Configuration.cs" />
+    <Compile Include="MySql\Models\MySqlMediaModel.cs" />
+    <Compile Include="MySql\FluentModel.cs" />
+    <Compile Include="MySql\FluentModelMetadataSource.cs" />
+    <Compile Include="MySql\MySqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MSSQL\Repositories\GenericRepository.cs" />
+    <Compile Include="Sql\Repositories\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

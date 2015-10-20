@@ -1,6 +1,6 @@
-﻿namespace MediaMonitoringSystem.MongoDb.ConsoleClient
+﻿namespace MediaMonitoringSystem.Models.MongoDb
 {
-    using MediaMonitoringSystem.Models.MSSQL.Contracts;
+    using MediaMonitoringSystem.Models.Contracts;
     using MongoDB.Bson;
     using MongoDB.Bson.Serialization.Attributes;
 

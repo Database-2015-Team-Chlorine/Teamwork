@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Models.MSSQL.Contracts
+﻿namespace MediaMonitoringSystem.Models.Contracts
 {
     public enum MediaType
     {

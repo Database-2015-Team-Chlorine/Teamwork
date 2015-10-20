@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Models.MSSQL
+﻿namespace MediaMonitoringSystem.Models.Sql
 {
     using System;
     using System.ComponentModel.DataAnnotations;

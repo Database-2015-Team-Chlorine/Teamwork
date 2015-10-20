@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.Models.MSSQL
+﻿namespace MediaMonitoringSystem.Models.Sql
 {
     public enum PackageType
     {

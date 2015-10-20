@@ -1,12 +1,9 @@
-﻿namespace MediaMonitoringSystem.Models.PDF
+﻿namespace MediaMonitoringSystem.Models.Pdf
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    public class Theme
+    public class PdfModel
     {
         public string Name { get; set; }
 

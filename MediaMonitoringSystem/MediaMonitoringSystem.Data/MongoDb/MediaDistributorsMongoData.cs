@@ -1,22 +1,22 @@
-﻿namespace MediaMonitoringSystem.ConsoleClient
+﻿namespace MediaMonitoringSystem.Data.MongoDb
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using MediaMonitoringSystem.Data.Contracts;
-    using MediaMonitoringSystem.Data.MongoDb;
-    using MediaMonitoringSystem.Models.MSSQL;
-    using MediaMonitoringSystem.Models.MSSQL.Contracts;
-    using MediaMonitoringSystem.MongoDb.ConsoleClient;
+
     using MongoDB.Driver;
 
-    public class MongoModel
+    using MediaMonitoringSystem.Models.Sql;
+    using MediaMonitoringSystem.Models.MongoDb;
+    using MediaMonitoringSystem.Models.Contracts;
+
+    public class MediaDistributorsMongoData
     {
         private readonly MediaDistributorsMongoDbContext context;
         private readonly MongoDatabase db;
         private readonly MongoCollection<MediaDistributorModel> distributors;
 
-        public MongoModel()
+        public MediaDistributorsMongoData()
         {
             this.context = new MediaDistributorsMongoDbContext();
             this.db = this.context.GetDatabase();

@@ -1,10 +1,10 @@
-﻿namespace MediaMonitoringSystem.Models.MSSQL
+﻿namespace MediaMonitoringSystem.Models.Sql
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    using MediaMonitoringSystem.Models.MSSQL.Contracts;
+    using MediaMonitoringSystem.Models.Contracts;
 
     public class Media
     {
@@ -22,6 +22,9 @@
 
         public MediaType Type { get; set; }
 
+        [Required]
+        [MinLength(2)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         public virtual ICollection<Package> Packages

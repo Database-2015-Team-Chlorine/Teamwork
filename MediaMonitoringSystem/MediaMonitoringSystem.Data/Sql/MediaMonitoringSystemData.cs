@@ -1,10 +1,10 @@
-﻿namespace MediaMonitoringSystem.Data.MSSQL
+﻿namespace MediaMonitoringSystem.Data.Sql
 {
     using System;
     using System.Collections.Generic;
     using MediaMonitoringSystem.Data.Contracts;
-    using MediaMonitoringSystem.Data.MSSQL.Repositories;
-    using MediaMonitoringSystem.Models.MSSQL;
+    using MediaMonitoringSystem.Data.Sql.Repositories;
+    using MediaMonitoringSystem.Models.Sql;
 
     public class MediaMonitoringSystemData : IMediaMonitoringSystemData
     {

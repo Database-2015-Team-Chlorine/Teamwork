@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.MongoDb.ConsoleClient
+﻿namespace MediaMonitoringSystem.Models.MongoDb
 {
     using System.Collections.Generic;
     using MediaMonitoringSystem.Models.Contracts;
