@@ -41,6 +41,8 @@
                     writer.Write(JsonConvert.SerializeObject(serializedMedia, Formatting.Indented));
                 }
             }
+
+            Console.WriteLine("JOSNs generated!");
         }
     }
 }
