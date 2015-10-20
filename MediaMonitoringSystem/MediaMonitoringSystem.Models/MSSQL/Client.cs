@@ -15,9 +15,9 @@
         [Key]
         public int Id { get; set; }
 
-        //[Required]
-        //[MinLength(3)]
-        //[MaxLength(40)]
+        [Required]
+        [MinLength(3)]
+        [MaxLength(40)]
         public string Name { get; set; }
 
         public virtual ICollection<Theme> Themes

@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.Models", "MediaMonitoringSystem.Models\MediaMonitoringSystem.Models.csproj", "{0C011E1A-DB91-498C-8647-B20DB228835C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.Data", "MediaMonitoringSystem.Data\MediaMonitoringSystem.Data.csproj", "{15248EAC-537D-4BBF-8D04-E57DA4405DB2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.ConsoleClient", "MediaMonitoringSystem.ConsoleClient\MediaMonitoringSystem.ConsoleClient.csproj", "{E33637C7-2733-4A1B-B8F8-A205A89CF881}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.WindowsFormsClient", "MediaMonitoringSystem.WindowsFormsClient\MediaMonitoringSystem.WindowsFormsClient.csproj", "{96F5F7C4-732E-4EEA-9631-00A27E97932D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.Exporters", "MediaMonitoringSystem.Exporters\MediaMonitoringSystem.Exporters.csproj", "{3DC6ECD4-5D05-4FE3-99AF-7BEEDFEA88E0}"
 EndProject
@@ -33,10 +31,6 @@ Global
 		{E33637C7-2733-4A1B-B8F8-A205A89CF881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E33637C7-2733-4A1B-B8F8-A205A89CF881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E33637C7-2733-4A1B-B8F8-A205A89CF881}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96F5F7C4-732E-4EEA-9631-00A27E97932D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DC6ECD4-5D05-4FE3-99AF-7BEEDFEA88E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DC6ECD4-5D05-4FE3-99AF-7BEEDFEA88E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DC6ECD4-5D05-4FE3-99AF-7BEEDFEA88E0}.Release|Any CPU.ActiveCfg = Release|Any CPU

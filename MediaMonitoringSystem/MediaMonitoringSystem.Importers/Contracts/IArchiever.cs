@@ -8,6 +8,5 @@
         void SendToArchieve(string rootFolder, string zipPath);
 
         void UnArchieve(string zipPath, string exportFolder);
-
     }
 }

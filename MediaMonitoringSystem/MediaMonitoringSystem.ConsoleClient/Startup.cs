@@ -2,58 +2,57 @@
 {
     using System.Linq;
     using MediaMonitoringSystem.Data.MSSQL;
-    using MediaMonitoringSystem.PDF.Exporters;
+    using MediaMonitoringSystem.Exporters.Pdf;
+    using MediaMonitoringSystem.Importers.Archive;
+    using MediaMonitoringSystem.Importers.Contracts;
+    using MediaMonitoringSystem.Importers.Excel;
 
     public class Startup
     {
         public static void Main()
         {
-            //var mongo = new MongoModel();
-            //var distributors = mongo.GenerateDistributors(3);
+            var mongo = new MongoModel();
+            var distributors = mongo.GenerateDistributors(3);
 
-            //mongo.InsertToMongo(distributors);
-            //var distributorsToSql = mongo.GetFromMongo();
+            mongo.InsertToMongo(distributors);
+            var distributorsToSql = mongo.GetFromMongo();
 
+            var db = new MediaMonitoringSystemDbContext();
 
+            foreach (var d in distributorsToSql)
+            {
+                db.MediaDistributors.Add(d);
+            }
 
+            db.SaveChanges();
 
-            //var db = new MediaMonitoringSystemDbContext();
+            //// Try this to create the files in Debug folder
+           // DemoExporters.RunMe();
 
-            //foreach (var d in distributorsToSql)
-            //{
-            //    db.MediaDistributors.Add(d);
-            //}
-
-            //db.SaveChanges();
-
-            ////// Try this to create the files in Debug folder
-            //DemoExporters.RunMe();
-
-            ////Test Archiver UNcommend to test it
-            //IArchiever zipArchiver = new ZipArchiever();
-            //string zipPath = "../../MOCK_DATA.zip";
-            //string extractedPath = "../../Export/";
-            //zipArchiver.UnArchieve(zipPath, extractedPath);
+            //Test Archiver UNcommend to test it
+            IArchiever zipArchiver = new ZipArchiever();
+            string zipPath = "../../MOCK_DATA.zip";
+            string extractedPath = "../../Export/";
+            zipArchiver.UnArchieve(zipPath, extractedPath);
 
             var pdfWriter = new PdfReportWriter();
             pdfWriter.Generate();
-            //GetDataToCreatPdf();
+           // GetDataToCreatPdf();
             
-            //TODO: Throws exceptiopn adding articles
-            //IArchiever zipArchiver = new ZipArchiever();
-            //IImporter excelImporter = new ExcelImporter(new MediaMonitoringSystemDbContext());
+            // TODO: Throws exceptiopn adding articles
+            IArchiever zipArchiver2 = new ZipArchiever();
+            IImporter excelImporter = new ExcelImporter(new MediaMonitoringSystemDbContext());
 
-            //string[] paths = new string[]{
-            //    "../../MOCK_DATA.zip",
-            //    "../../Export/",
-            //    "../../Export/MOCK_DATA/MOCK_DATA.xls"
-            //};
+            string[] paths = new string[]
+            {
+                "../../MOCK_DATA.zip",
+                "../../Export/",
+                "../../Export/MOCK_DATA/MOCK_DATA.xls"
+            };
 
-            //IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver, excelImporter, paths);
+            IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver2, excelImporter, paths);
 
-            //bulkImporter.ImportAll();
-            
-
+            bulkImporter.ImportAll();
         }
     }
 }

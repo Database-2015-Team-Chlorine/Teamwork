@@ -1,5 +1,4 @@
-﻿
-namespace MediaMonitoringSystem.Data.MySQL.Models
+﻿namespace MediaMonitoringSystem.Data.MySQL.Models
 {
     public class MySqlMediaModel
     {

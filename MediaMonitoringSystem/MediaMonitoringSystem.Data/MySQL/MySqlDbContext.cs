@@ -38,6 +38,5 @@
                 schemaHandler.ExecuteDDLScript(script);
             }
         }
-
     }
 }

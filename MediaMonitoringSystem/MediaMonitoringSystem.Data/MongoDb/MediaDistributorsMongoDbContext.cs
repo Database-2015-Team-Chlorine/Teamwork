@@ -4,8 +4,8 @@
 
     public class MediaDistributorsMongoDbContext
     {
-        const string DatabaseHost = "mongodb://127.0.0.1";
-        const string DatabaseName = "MediaDistributors";
+        private const string DatabaseHost = "mongodb://127.0.0.1";
+        private const string DatabaseName = "MediaDistributors";
 
         public MongoDatabase GetDatabase()
         {

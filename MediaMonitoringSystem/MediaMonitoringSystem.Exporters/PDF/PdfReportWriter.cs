@@ -1,4 +1,4 @@
-﻿namespace MediaMonitoringSystem.PDF.Exporters
+﻿namespace MediaMonitoringSystem.Exporters.Pdf
 {
     using System;
     using System.Collections.Generic;

@@ -19,8 +19,8 @@
         public MongoModel()
         {
             this.context = new MediaDistributorsMongoDbContext();
-            this.db = context.GetDatabase();
-            this.distributors = db.GetCollection<MediaDistributorModel>("Distributors");
+            this.db = this.context.GetDatabase();
+            this.distributors = this.db.GetCollection<MediaDistributorModel>("Distributors");
         }
 
         public ICollection<MediaDistributorModel> GenerateDistributors(int count)
@@ -32,7 +32,7 @@
                 var media = new MediaDistributorModel()
                 {
                     Name = "Distributor #" + i,
-                    Medias = GenerateMedias(i + 10)
+                    Medias = this.GenerateMedias(i + 10)
                 };
 
                 distributors.Add(media);
@@ -40,26 +40,6 @@
 
             return distributors;
         }
-
-        private ICollection<MediaModel> GenerateMedias(int count)
-        {
-            var medias = new List<MediaModel>();
-
-            for (int i = 0; i < count; i++)
-            {
-                var media = new MediaModel()
-                {
-                    Name = "Media #" + i,
-                    PriceSubscriptionPerMonth = 100 + i,
-                    Type = (MediaType)Enum.Parse(typeof(MediaType), (i % 3).ToString())
-                };
-
-                medias.Add(media);
-            }
-
-            return medias;
-        }
-
 
         public void InsertToMongo(ICollection<MediaDistributorModel> distributorsToInsert)
         {
@@ -94,6 +74,25 @@
             }
 
             return result;
+        }
+
+        private ICollection<MediaModel> GenerateMedias(int count)
+        {
+            var medias = new List<MediaModel>();
+
+            for (int i = 0; i < count; i++)
+            {
+                var media = new MediaModel()
+                {
+                    Name = "Media #" + i,
+                    PriceSubscriptionPerMonth = 100 + i,
+                    Type = (MediaType)Enum.Parse(typeof(MediaType), (i % 3).ToString())
+                };
+
+                medias.Add(media);
+            }
+
+            return medias;
         }
     }
 }

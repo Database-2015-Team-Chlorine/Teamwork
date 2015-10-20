@@ -8,15 +8,15 @@
     {
         public Form1()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var FD = new OpenFileDialog();
-            if (FD.ShowDialog() == DialogResult.OK)
+            var fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
             {
-                string zipPath = FD.FileName;
+                string zipPath = fd.FileName;
                 string extractPath = "../../../ImportedFiles";
 
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
@@ -30,7 +30,6 @@
 
         private void button2_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

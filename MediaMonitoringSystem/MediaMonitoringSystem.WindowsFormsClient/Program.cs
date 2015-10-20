@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.

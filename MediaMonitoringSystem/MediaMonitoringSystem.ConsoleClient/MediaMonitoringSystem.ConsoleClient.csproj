@@ -108,6 +108,10 @@
       <Project>{3dc6ecd4-5d05-4fe3-99af-7beedfea88e0}</Project>
       <Name>MediaMonitoringSystem.Exporters</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MediaMonitoringSystem.Importers\MediaMonitoringSystem.Importers.csproj">
+      <Project>{389a609f-3509-4cae-a169-76eacca4bf2b}</Project>
+      <Name>MediaMonitoringSystem.Importers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MediaMonitoringSystem.Models\MediaMonitoringSystem.Models.csproj">
       <Project>{0c011e1a-db91-498c-8647-b20db228835c}</Project>
       <Name>MediaMonitoringSystem.Models</Name>

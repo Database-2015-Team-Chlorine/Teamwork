@@ -1,7 +1,6 @@
 ﻿namespace MediaMonitoringSystem.WindowsFormsClient
 {
-    class Extracter
+    public class Extracter
     {
-
     }
 }

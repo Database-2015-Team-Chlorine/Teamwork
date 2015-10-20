@@ -23,14 +23,14 @@
 
             this.archiever.UnArchieve(zipPath, extractedPath);
 
-            importer.ImportClientsFrom(filePath);
-            importer.ImportThemesFrom(filePath);
-            importer.ImportDepartmentsFrom(filePath);
-            importer.ImportEmployeesFrom(filePath);
-            importer.ImportMediaDistributorsFrom(filePath);
-            importer.ImportMediaPackagesFrom(filePath);
-            importer.ImportMediasFrom(filePath);
-            importer.ImportArticlesFrom(filePath);
+            this.importer.ImportClientsFrom(filePath);
+            this.importer.ImportThemesFrom(filePath);
+            this.importer.ImportDepartmentsFrom(filePath);
+            this.importer.ImportEmployeesFrom(filePath);
+            this.importer.ImportMediaDistributorsFrom(filePath);
+            this.importer.ImportMediaPackagesFrom(filePath);
+            this.importer.ImportMediasFrom(filePath);
+            this.importer.ImportArticlesFrom(filePath);
         }
     }
 }
