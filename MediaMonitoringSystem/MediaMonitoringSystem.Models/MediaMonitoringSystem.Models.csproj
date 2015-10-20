@@ -84,6 +84,8 @@
   <ItemGroup>
     <Compile Include="MongoDb\MediaDistributorModel.cs" />
     <Compile Include="MongoDb\MediaModel.cs" />
+    <Compile Include="Sqlite\Price.cs" />
+    <Compile Include="Sqlite\SchemaInfo.cs" />
     <Compile Include="Sql\Article.cs" />
     <Compile Include="Sql\Client.cs" />
     <Compile Include="Contracts\IMediaDistributorModel.cs" />

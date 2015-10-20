@@ -3,6 +3,7 @@
     using System.Linq;
     using MediaMonitoringSystem.Data.MongoDb;
     using MediaMonitoringSystem.Data.Sql;
+    using MediaMonitoringSystem.Data.Sqlite;
     using MediaMonitoringSystem.Exporters.Pdf;
     using MediaMonitoringSystem.Exporters.XML;
     using MediaMonitoringSystem.Generator;
@@ -35,7 +36,9 @@
                 dbSql.MediaDistributors.Add(distributor);
             }
             dbSql.SaveChanges();
+>>>>>>> e1c871f4a51ce55ee53ae24534264957938a56bb
 
+            var sqlite = new MediaMonitoringPricingData();
 
             // Extracting zip file.
             IArchiever zipArchiver = new ZipArchiever();
