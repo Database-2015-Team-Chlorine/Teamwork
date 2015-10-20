@@ -13,6 +13,8 @@
 
         public void Generate()
         {
+            Console.WriteLine("JSONs starting generate...");
+
             var db = new MediaMonitoringSystemDbContext();
 
             var medias = db.Medias
@@ -40,7 +42,9 @@
                 {
                     writer.Write(JsonConvert.SerializeObject(serializedMedia, Formatting.Indented));
                 }
+                Console.Write(".");
             }
+            Console.WriteLine();
 
             Console.WriteLine("JOSNs generated!");
         }
