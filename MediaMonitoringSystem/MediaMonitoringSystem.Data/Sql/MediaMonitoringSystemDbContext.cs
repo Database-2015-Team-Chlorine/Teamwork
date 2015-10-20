@@ -11,6 +11,7 @@
             : base("MediaMonitoringSystem")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MediaMonitoringSystemDbContext, Configuration>());
+            System.Console.WriteLine("SQL Server created!");
         }
 
         public IDbSet<Client> Clients { get; set; }

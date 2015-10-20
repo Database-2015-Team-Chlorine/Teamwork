@@ -36,10 +36,9 @@
                         {
                             Name = name
                         });
-
-                        Console.WriteLine("clients filed");
-                        this.db.SaveChanges();
                     }
+                    this.db.SaveChanges();
+                    Console.WriteLine("Clients added!");
                 }
             }
         }
@@ -60,10 +59,21 @@
                     {
                         string name = dr[0].ToString();
                         DateTime startDate = Convert.ToDateTime(dr[1]);
-                        int clientID = int.Parse(dr[2].ToString());
+                        DateTime endDate = Convert.ToDateTime(dr[2]);
+                        int clientID = int.Parse(dr[3].ToString());
+                        int packageID = int.Parse(dr[4].ToString());
 
-                        // this.themes.Add(new Theme {Name = name, StartDate = startDate, ClientId = clientID });
+                        this.db.Themes.Add(new Theme
+                        {
+                            Name = name,
+                            StartDate = startDate,
+                            EndDate = endDate,
+                            ClientId = clientID,
+                            PackageId = packageID
+                        });
                     }
+                    this.db.SaveChanges();
+                    Console.WriteLine("Themes added!");
                 }
             }
         }
@@ -89,9 +99,9 @@
                             Name = name
                         });
 
-                        Console.WriteLine("departments filed");
-                        this.db.SaveChanges();
                     }
+                    this.db.SaveChanges();
+                    Console.WriteLine("Departments added!");
                 }
             }
         }
@@ -118,10 +128,9 @@
                             Name = name,
                             DepartmentId = depId
                         });
-
-                        Console.WriteLine("employees filed");
-                        this.db.SaveChanges();
                     }
+                    Console.WriteLine("Employees added!");
+                    this.db.SaveChanges();
                 }
             }
         }
@@ -146,10 +155,9 @@
                         {
                             Name = name,
                         });
-
-                        Console.WriteLine("media Dist filed");
-                        this.db.SaveChanges();
                     }
+                    Console.WriteLine("Media distributores added");
+                    this.db.SaveChanges();
                 }
             }
         }
@@ -176,10 +184,9 @@
                             CountMedias = numberOfMedias,
                             PricePerMonth = price
                         });
-
-                        Console.WriteLine("packages filed");
-                        this.db.SaveChanges();
                     }
+                    this.db.SaveChanges();
+                    Console.WriteLine("Packages added!");
                 }
             }
         }
@@ -212,10 +219,9 @@
                             DepartmentId = departmentId,
                             PriceSubscriptionPerMonth = price
                         });
-
-                        Console.WriteLine("medias filed!");
-                        this.db.SaveChanges();
                     }
+                    Console.WriteLine("Medias added!");
+                    this.db.SaveChanges();
                 }
             }
         }
@@ -247,10 +253,9 @@
                             PublishedOn = date,
                             MediaId = mediaId
                         });
-
-                        Console.WriteLine("Articles filed!!");
-                        this.db.SaveChanges();
                     }
+                    Console.WriteLine("Articles added!");
+                    this.db.SaveChanges();
                 }
             }
         }

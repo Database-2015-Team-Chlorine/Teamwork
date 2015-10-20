@@ -76,6 +76,7 @@
                 doc.Add(table);
                 doc.Close();
             }
+            Console.WriteLine("PDF for themes generated!");
         }
 
         private IList<IGrouping<DateTime, PdfModel>> GetThemeData()

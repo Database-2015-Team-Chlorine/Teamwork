@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.Expor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.Importers", "MediaMonitoringSystem.Importers\MediaMonitoringSystem.Importers.csproj", "{389A609F-3509-4CAE-A169-76EACCA4BF2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaMonitoringSystem.Generator", "MediaMonitoringSystem.Generator\MediaMonitoringSystem.Generator.csproj", "{856E1A55-0590-45FF-A135-BE08225526F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{389A609F-3509-4CAE-A169-76EACCA4BF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{389A609F-3509-4CAE-A169-76EACCA4BF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{389A609F-3509-4CAE-A169-76EACCA4BF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{856E1A55-0590-45FF-A135-BE08225526F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{856E1A55-0590-45FF-A135-BE08225526F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{856E1A55-0590-45FF-A135-BE08225526F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{856E1A55-0590-45FF-A135-BE08225526F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

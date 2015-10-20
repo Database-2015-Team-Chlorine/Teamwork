@@ -5,6 +5,7 @@
     using MediaMonitoringSystem.Data.MongoDb;
     using MediaMonitoringSystem.Data.Sql;
     using MediaMonitoringSystem.Exporters.Pdf;
+    using MediaMonitoringSystem.Generator;
     using MediaMonitoringSystem.Importers.Archive;
     using MediaMonitoringSystem.Importers.Contracts;
     using MediaMonitoringSystem.Importers.Excel;
@@ -13,33 +14,35 @@
     {
         public static void Main()
         {
-            var mongo = new MediaDistributorsMongoData();
-            var distributors = mongo.GenerateDistributors(3);
+            // Creating MongoDb database.
+            var dbMongoDb = new MediaDistributorsMongoData();
 
-            mongo.InsertToMongo(distributors);
-            var distributorsToSql = mongo.GetFromMongo();
 
+            // Generating distributors.
+            var genedartor = new DataGenerator();
+            var generatedDistributors = genedartor.GenerateDistributors(3);
+
+
+            // Inserting to MongoDb
+            dbMongoDb.InsertToMongo(generatedDistributors);
+            var distributorsToSql = dbMongoDb.GetFromMongo();
+
+
+            // Creating and insert to SQL Server
             var dbSql = new MediaMonitoringSystemDbContext();
-
             foreach (var distributor in distributorsToSql)
             {
                 dbSql.MediaDistributors.Add(distributor);
             }
-
             dbSql.SaveChanges();
 
 
-            //Test Archiver UNcommend to test it
+            // Extracting zip
             IArchiever zipArchiver = new ZipArchiever();
             string zipPath = "../../MOCK_DATA.zip";
             string extractedPath = "../../Export/";
             zipArchiver.UnArchieve(zipPath, extractedPath);
 
-            var pdfWriter = new PdfReportWriter();
-            pdfWriter.Generate();
-            
-            // TODO: Throws exceptiopn adding articles
-            IArchiever zipArchiver2 = new ZipArchiever();
             IImporter excelImporter = new ExcelImporter(new MediaMonitoringSystemDbContext());
 
             string[] paths = new string[]
@@ -49,9 +52,15 @@
                 "../../Export/MOCK_DATA/MOCK_DATA.xls"
             };
 
-            IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver2, excelImporter, paths);
 
+            // Importing data from excel
+            IBulkImporter bulkImporter = new ExcelBulkImporter(zipArchiver, excelImporter, paths);
             bulkImporter.ImportAll();
+
+
+            // Creating PDF
+            var pdfWriter = new PdfReportWriter();
+            pdfWriter.Generate();
         }
     }
 }
